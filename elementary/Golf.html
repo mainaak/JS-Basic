@@ -1,0 +1,46 @@
+<meta charset="UTF-8">
+<script>
+
+    slangs = ["Hole-In-One", "Eagle", "Birdie", "Par", "Bogey", "Double Bogey", "Go-Home!"];
+
+    function checkSlang(parOfCourse, strokesHitByPlayer) {
+
+        switch (calculateStrokes(parOfCourse, strokesHitByPlayer)) {
+            case 1:
+                return slangs[0];
+            case 2:
+                return slangs[1];
+            case 3:
+                return slangs[2];
+            case 4:
+                return slangs[3];
+            case 5:
+                return slangs[4];
+            case 6:
+                return slangs[5];
+            case 7:
+                return slangs[slangs.length - 1];
+            default:
+                return "No Strokes Hit By Player Yet...";
+        }
+    }
+
+    function calculateStrokes(parOfCourse, strokesHitByPlayer) {
+        if (strokesHitByPlayer == 1)
+            return 1;
+        else if ((strokesHitByPlayer <= (parOfCourse - 2)) && (strokesHitByPlayer != 1))
+            return 2;
+        else if (strokesHitByPlayer == (parOfCourse - 1))
+            return 3;
+        else if (strokesHitByPlayer == parOfCourse)
+            return 4;
+        else if (strokesHitByPlayer == (parOfCourse + 1))
+            return 5;
+        else if (strokesHitByPlayer == (parOfCourse + 2))
+            return 6;
+        else if (strokesHitByPlayer == (parOfCourse + 3))
+            return 7;
+    }
+
+    console.log(checkSlang(12, 4));
+</script>

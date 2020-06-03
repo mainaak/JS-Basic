@@ -1,0 +1,46 @@
+<meta charset="UTF-8">
+<script>
+    var person = {
+        5:"five",
+        "fname": "mainaak",
+        "lname": "Aanand",
+        "gender": "Male",
+        "age": 25,
+        "cousins": [
+            "neelaksh", "vaishali", "akhil", "abhinav"
+        ],
+        "education": [
+            {
+                "school": "bbps",
+                "year": 2013
+            },
+            {
+                "school": "manipal",
+                "year": 2017
+            }
+        ]
+    }
+    console.log("Cousin Last: " + person.cousins[person.cousins.length-1]);
+    console.log("List of JSONS in JSON: " + person.education[1].year);
+    console.log(person["5"]);
+    person.newPropKey = "newPropertyValue";
+    console.log("newPropertyKey: " + person.newPropKey);
+    person['newProperty2'] = [2000];
+    person.newProperty2.push(1000);
+    console.log("newprop2: " + person.newProperty2);
+    person.cousins.push("sarish");
+    person.education.push({"school":"computing","year":2020});
+    console.log(person.cousins.shift());
+    console.log(person.education[2].school);
+    console.log("Deleting cousins list: " + delete person.cousins ? "Deleted" : "Unable to delete");
+    console.log(person.cousins);
+
+    //Looking up values
+    function lookupAge(parameter){
+        return person[parameter];
+    }
+    console.log(lookupAge("age"));
+
+    //checking for properties
+    console.log(person.hasOwnProperty("gender") ? "This property exists" : "This property does not exist");
+</script>

@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>PromiseAll</title>
+</head>
+<body>
+<script>
+    const fnames = ["Mainaak", "Amit", "Akshit", "Bharat"];
+    const lnames = ["Aanand", "Sangwan", "Jagota", "Gandhi"];
+
+    const namePromises = new Promise(
+        (resolve, reject) => {
+            setTimeout(() => resolve(fnames), 3000);
+            setTimeout(() => reject("No Data 1"), 3500);
+        }
+    );
+
+    const surnamePromises = new Promise(
+        (resolve, reject) => {
+            setTimeout(() => resolve(lnames), 4000);
+            setTimeout(() => reject("No Data 2"), 5000);
+        }
+    );
+
+    Promise.all([namePromises, surnamePromises])
+        .then(y => {
+                const [arr1, arr2] = y;
+                for (let i=0;i<arr1.length;i++){
+                    console.log(`${arr1[i]} ${arr2[i]}`);
+                }
+            }
+        )
+        .catch(n => console.log(n));
+
+</script>
+</body>
+</html>

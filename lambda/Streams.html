@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Streams Similar</title>
+</head>
+<body>
+<script>
+    //Both of the below are similar
+    let array = [1, 2, 3, 4, 5];
+    let multiply = (n) => {
+        let returnResult = n.map(a => a * 2);
+        return returnResult;
+    }
+    console.log(multiply(array));
+
+    let mainaak = array.map(a => a * 2);
+    console.log(mainaak);
+
+    //FILTER
+    let filtered = array.filter( number => number>1&&number<4)
+        .map(sqrd => sqrd*sqrd);
+    console.log(filtered);
+</script>
+</body>
+</html>

@@ -1,0 +1,37 @@
+<meta charset="UTF-8">
+<script>
+    //undefined, null, boolean, symbol, number, object
+    //can use in entire program
+    var myName = "This is from var myName";
+    //can only use in scope of where it is
+    let freeCodeCamp = "let";
+    //Const does not change ever
+    const number = 3.14;
+
+    var a = 10;
+    var b = 25;
+    a += b;
+    console.log("Pre-Increment " + ++a);
+    console.log("Post-Increment " + a++);
+    console.log("No Increment " + a);
+    a = 10;
+    a *= b;
+    console.log("Multiplying a;10 by b;25" + a);
+    console.log("Division and Modulus\t" + a / 10 + " " + a % 10);
+
+    //Backquotes ` also let us use " and ' together
+    var escapeQuotes = "\"This is in \"quotes\"\"";
+    console.log(escapeQuotes);
+    escapeQuotes = 'This is "double quotes without escape chars"';
+    console.log(escapeQuotes);
+
+    escapeQuotes = "First Line\fSecond Line\bThird Line";
+    console.log(escapeQuotes);
+
+    var concatString = "First String ";
+    concatString += "Second String";
+    console.log(concatString + " The length of this string is " + concatString.length);
+    console.log("First character of var concatString is " + concatString[0]);
+    console.log("Last character of the concatString is " + concatString[--concatString.length]);
+</script>
+

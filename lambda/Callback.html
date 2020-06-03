@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Callback</title>
+</head>
+<body>
+<script>
+
+    // function callbackExample(greeting, anotherFunction) {
+    //     return anotherFunction(greeting);
+    // }
+
+    // function myFunction(greeting) {
+    //     return greeting + " Mainaak";
+    // }
+
+    let callbackExample = (param1,param2) => param2(param1);
+    //Greeting is the parameter which returns greeting + String
+    console.log(callbackExample("Hello", greeting => greeting + " Mainaak"));
+</script>
+</body>
+</html>

@@ -1,0 +1,75 @@
+<meta charset="UTF-8" />
+<script>
+
+      //Destructuring an object
+      let array = {"firstName": "Mainaak", "lastName": "Aanand", age: 25};
+      //using destructuring
+      const {firstName: a, lastName: b, age: z} = array;
+      console.log("firstName: " + a + "\nlastName: " + b + "\nage: " + z);
+
+      const AVG_TEMPERATURES = {
+          today: 77.5,
+          tomorrow: 79
+      };
+
+      function getTempOfTomorrow(objectTemperature) {
+          const {today: todayO, tomorrow: tomorrowO} = objectTemperature;
+          return tomorrowO;
+      }
+
+      console.log(getTempOfTomorrow(AVG_TEMPERATURES));
+
+      //Destructuring from nester object
+      const LOCAL_FORECAST = {
+          todayN: {min: 72, max: 83},
+          tomorrowN: {min: 73.3, max: 84.6}
+      };
+
+      //Original approach
+      function getMaxOfTomm(forecast) {
+          const {tomorrowN: objectForTomm} = forecast;
+          const {max: maxVariable} = objectForTomm;
+          return maxVariable;
+      }
+
+      //Correct Approach
+      function maximumOriginal(forecast) {
+          const {tomorrowN: {max: actual}} = forecast;
+          return actual;
+      }
+
+      console.log(getMaxOfTomm(LOCAL_FORECAST));
+
+      //Destructuring from an array
+      const [a1, a2, , , a3] = [1, 3, 5, 7, 9];
+      console.log(a1, a2, a3);
+
+      //Destructuring using variable argument
+      const varArg = [2, 4, 6, 8, 10, 12, 14, 16];
+
+      function removeFirstTwo(provideList) {
+          const [copyThisValue, , ...varArgCopy] = provideList;
+          return varArgCopy;
+      }
+
+      console.log(varArg);
+      console.log(removeFirstTwo(varArg));
+
+      //Destructuring and passing into the method directly
+      let stats = {
+          max: 56.78,
+          sd: 4.34,
+          median: 34.54,
+          min: -5,
+          avg: 35
+      }
+
+      const alt = ({max, min}) => (max + min) / 2;
+
+      const myConst = (function ({max,min}) {
+          //let {max: myMax, min: myMin} = pro;
+          return (max+min)/2;
+      });
+      console.log(myConst(stats));
+      console.log(alt(stats));
+</script>

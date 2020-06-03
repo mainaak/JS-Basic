@@ -1,0 +1,65 @@
+<meta charset="UTF-8">
+<script>
+    const person = {
+        "name": "Mainaak",
+        "age": 25
+    };
+    const msg = `My name is ${person.name}!\nI am ${person.age} years old`;
+    console.log(msg);
+
+    const result = {
+        success: ["max-length", "no-amd", "prefer-arrow-functions"],
+        failure: ["no-var", "var-on-top", "linebreak"],
+        skipped: ["id-blacklist", "no-dup-keys"]
+    };
+
+    function makeList(array) {
+        const finalArray = [];
+        for (let i = 0; i < array.length; i++) {
+            finalArray.push(`<li class="text-warning">${array[i]}</li>`);
+        }
+        return finalArray;
+    }
+
+    console.log(makeList(result.failure));
+
+    //concise declarations while passing JSONS
+    const createPerson = (name, age, gender) => {
+        return {
+            name: name,
+            age: age,
+            gender: gender
+        };
+    };
+
+    //Above implementation is same as
+    const createConcise = (nameC, ageC, genderC) => ({nameC, ageC, genderC});
+    console.log(createPerson("Mainaak", 25, "Male"));
+    console.log(createPerson("Ankit", 21, "Male"));
+
+    //old implementation
+    const bicycle = {
+        wheel: 2,
+        setWheel: function (newWheel) {
+            this.wheel = newWheel;
+        }
+    };
+    console.log(bicycle.wheel);
+    bicycle.setWheel(3);
+    console.log(bicycle.wheel);
+
+    //CONSTRUCTOR FUNCTION
+    var PinkFloyd1 = function (pinkFloydVar1) {
+        this.pinkFloydVar1 = pinkFloydVar1;
+    }
+    var atomHeartMother = new PinkFloyd1("Floyd");
+    console.log(atomHeartMother.pinkFloydVar1);
+
+    class PinkFloyd{
+        constructor(pinkFloydVar) {
+            this.pinkFloydVar = pinkFloydVar;
+        }
+    }
+    atomHeartMother1 = new PinkFloyd("FloydFromConst");
+    console.log(atomHeartMother1.pinkFloydVar);
+</script>

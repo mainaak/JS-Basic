@@ -1,0 +1,36 @@
+<meta charset="UTF-8">
+<script>
+    var resultString;
+
+    function wordGame(noun, verb, adverb, adjective, pronoun) {
+        resultString = "";
+        resultString += pronoun + " " + adjective + " " + noun + " " + verb + " " + adverb;
+        return resultString;
+    }
+
+    console.log(wordGame("bear", "ran", "quickly", "furry", "the"));
+
+    var arrayListForValues;
+
+    function addVarsToList(...values) {
+        arrayListForValues = values;
+        return arrayListForValues;
+    }
+
+    var listOne = addVarsToList("Mainaak", 1, "Javascript", 55, "Reactjs");
+    console.log(addVarsToList("Zauba", 1, "Javascript", 55, "Reactjs"));
+    console.log(listOne);
+
+    /*function returnListByLoop() {
+        for (a=0;a<listOne.length;a++)
+        {
+            console.log(listOne[a]);
+        }
+    }*/
+
+    function printToConsole(item, index) {
+        console.log(item + " is on index: " + index);
+    }
+
+    listOne.forEach(printToConsole);
+</script>

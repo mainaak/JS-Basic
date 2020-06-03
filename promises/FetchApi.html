@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>FetchApi</title>
+</head>
+<body>
+<script>
+    //https://randomuser.me/api/?results=
+    const getRanUsers = numberOfUsers => {
+        const fetchUsers = fetch(`https://randomuser.me/api/?results=${numberOfUsers}`);
+        fetchUsers
+            .then(data => {
+                data.json()
+                    .then(random => {
+                        console.log(JSON.stringify(random.results/*.length*/));
+                        random.results.forEach(a => {
+                            const {name: {first}, gender, location: {country}} = a;
+                            console.log(`Name: ${first}; Gender: ${gender}; Country: ${country}`);
+                        });
+                    })
+            })
+            .catch(error => console.log(error));
+    }
+    getRanUsers(10);
+</script>
+</body>
+</html>

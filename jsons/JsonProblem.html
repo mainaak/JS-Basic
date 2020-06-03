@@ -1,0 +1,43 @@
+<meta charset="UTF-8">
+<script>
+    var recordCollection = [{
+        "1": {
+            "album": "Rock you!",
+            "artist": "Queen",
+            "tracks": [
+                "We", "Will", "Rock", "You"
+            ]
+        },
+        "23": {
+            "album": "Another Brick In The Wall",
+            "artist": "Pink Floyd",
+            "tracks": [
+                "Numb", "Atom heart", "hey you!"
+            ]
+        },
+        "55": {
+            "artist": "Metallica",
+            "tracks": []
+        },
+        "666": {
+            "album": "Cowboys From Hell",
+            "artist":"Pantera"
+        }
+    }];
+
+
+    var copyOfCollection = JSON.parse(JSON.stringify(recordCollection));
+    function updateRecord(id,property,value){
+        if (value===""){
+            delete recordCollection[id][property];
+        } else if (property === "tracks"){
+            recordCollection[id][property] = recordCollection[id][property] || [];
+            recordCollection[id][property].push(value);
+        } else {
+            recordCollection[id][property] = value;
+        }
+        return JSON.parse(JSON.stringify(recordCollection));
+    }
+
+    console.log(updateRecord("23","tracks","Death Magnetic"));
+</script>

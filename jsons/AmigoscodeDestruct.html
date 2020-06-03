@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Destructuring</title>
+  </head>
+  <body>
+    <script>
+      const json = {
+        name: "Mainaak",
+        surname: "Aanand",
+        gender: "Male",
+        address: {
+          country: "India",
+          city: "New Delhi",
+          postCode: 110075,
+          fullAddress: {
+            doorNumber: "37D",
+            sector: 10,
+          },
+        },
+        age: 25,
+      };
+
+      const {
+        name,
+        age,
+        address: {
+          city,
+          fullAddress: { sector: mySector },
+        },
+      } = json;
+      const { country, postCode } = json.address;
+
+      console.log(
+        `${name}\n,${age}\n, ${country}\n, ${postCode}\n,${mySector}\n,${city}`
+      );
+    </script>
+  </body>
+</html>

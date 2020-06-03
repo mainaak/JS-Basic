@@ -1,0 +1,42 @@
+<meta charset="UTF-8">
+<script>
+    class Book{
+        constructor(author) {
+            this._author = author;
+        }
+        get writer(){
+            return this._author;
+        }
+
+        set writer(updatedAuthor){
+            this._author = updatedAuthor;
+        }
+    }
+
+    function makeClass(){
+        class Thermostat{
+            constructor(temp) {
+                this._temp = 5/9 * (temp-32);
+            }
+            get temperature(){
+                return this._temp;
+            }
+            set temperature(updatedTempC){
+                this._temp = updatedTempC;
+            }
+        }
+        return Thermostat;
+    }
+
+    const Thermostat = makeClass();
+    //Initialize constructor
+    const thermos = new Thermostat(76);
+    //creating a variable temp and getting value from the class using getter
+    let temp = thermos.temperature;
+    //setting value using setter
+    thermos.temperature = 26;
+    //updating temperature initialized by constructor to the set 26
+    temp = thermos.temperature;
+    //output of the get value
+    console.log(temp);
+</script>

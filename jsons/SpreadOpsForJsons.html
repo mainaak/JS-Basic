@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Appending Objects</title>
+  </head>
+  <body>
+    <script>
+      const objectOne = {
+        firstName: "Mainaak",
+        lastName: "Aanand",
+      };
+      const objectTwo = {
+        city: "New Delhi",
+        country: "India",
+        state: "New Delhi",
+      };
+
+      const appendedObject = { ...objectOne, ...objectTwo };
+      console.log(JSON.stringify(appendedObject));
+    </script>
+  </body>
+</html>
