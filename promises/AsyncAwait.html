@@ -6,9 +6,9 @@
 </head>
 <body>
 <script>
-    async function asyncFunc(parameter) {
-        const transformParameter = new Promise((res,rej) => {
-            setTimeout(()=>res(parameter.toUpperCase()),3000)
+    const asyncFunc = async (parameter) => {
+        const transformParameter = new Promise((res, rej) => {
+            setTimeout(() => res(parameter.toUpperCase()), 3000)
         });
         return await transformParameter;
     }
@@ -18,6 +18,20 @@
     });
 
     console.log("This is after the original function");
+
+    ////Implementation
+    const fetchCall = async numberOfUsers => {
+    const fetchUsers = await fetch(`https://randomuser.me/api/?results=${numberOfUsers}`);
+    const usersJson = await fetchUsers.json();
+    usersJson.results.forEach(jnjn => {
+        const {gender, email} = jnjn;
+        console.log(`gender: ${gender} & email: ${email}`);
+    });
+    return usersJson;
+    }
+
+    fetchCall(5);
+
 </script>
 </body>
 </html>
