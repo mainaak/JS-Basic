@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Asynchronous</title>
+</head>
+<body>
+<script>
+    async function asyncFunc(parameter) {
+        const transformParameter = new Promise((res,rej) => {
+            setTimeout(()=>res(parameter.toUpperCase()),3000)
+        });
+        return await transformParameter;
+    }
+
+    asyncFunc('mainaak').then(res => {
+        console.log("Result from async: " + res);
+    });
+
+    console.log("This is after the original function");
+</script>
+</body>
+</html>
